@@ -1,11 +1,12 @@
-const fn = function () {
-  console.log('Fuction Working');
-};
 const express = require('express');
+const path = require('path');
 const app = express();
 
+//MİDDLEWARES
+app.use(express.static('public'));
+
 app.get('/', function (req, res) {
-  res.status(200).send('İndex page');
+  res.sendFile(path.resolve(__dirname, 'temp/index.html'));
 });
 
 const PORT = 3000;
